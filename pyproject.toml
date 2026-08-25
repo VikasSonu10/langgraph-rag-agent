@@ -1,0 +1,9 @@
+[project]
+name = "langgraph-rag-agent"
+version = "0.0.1"
+description = "Hands-on skeleton: RAG-style single agent, multi-step tool chain, LangGraph"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

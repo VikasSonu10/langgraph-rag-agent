@@ -1,0 +1,11 @@
+# STUB dependency set. Uncommented in a later session once we move from
+# scaffold to working code (kept minimal now so `pip install` stays fast
+# during this scaffolding session).
+
+pytest>=8.0.0
+
+# --- to be enabled in a later session ---
+# langgraph>=0.2.0
+# langchain>=0.3.0
+# openai>=1.40.0
+# anthropic>=0.34.0
