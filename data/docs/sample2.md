@@ -1,0 +1,1 @@
+Second sample document for retrieval testing.'
