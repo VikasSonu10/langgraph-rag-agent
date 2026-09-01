@@ -30,4 +30,5 @@ ENV APP_ENV=container
 # STUB entrypoint: runs the graph's __main__ block once for now.
 # TODO (later session): replace with a real API server entrypoint
 # (e.g. FastAPI + uvicorn) once we containerize as a service, not a script.
-CMD ["python", "-m", "agent.graph"]
+#CMD ["python", "-m", "agent.graph"]
+CMD ["uvicorn", "agent.api:app", "--host", "0.0.0.0", "--port", "8000"]
