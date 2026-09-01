@@ -10,7 +10,7 @@ from agent.graph import build_graph
 
 def test_full_chain_produces_final_answer():
     app = build_graph()
-    result = app({"question": "What is this skeleton for?"})
+    result = app.invoke({"question": "What is this skeleton for?"})
 
     assert "final_answer" in result
     assert "retrieved_chunks" in result
