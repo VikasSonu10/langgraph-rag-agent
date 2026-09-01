@@ -20,7 +20,7 @@ working code in the next session.
 """
 
 from typing import TypedDict
-
+from langgraph.graph import StateGraph, END
 from agent.nodes.retrieve import retrieve_node
 from agent.nodes.reason import reason_node
 from agent.nodes.answer import answer_node
@@ -34,35 +34,19 @@ class AgentState(TypedDict, total=False):
 
 
 def build_graph():
-    """
-    TODO (next session): replace this stub with real LangGraph wiring, e.g.
-
-        from langgraph.graph import StateGraph, END
-
-        graph = StateGraph(AgentState)
-        graph.add_node("retrieve", retrieve_node)
-        graph.add_node("reason", reason_node)
-        graph.add_node("answer", answer_node)
-        graph.set_entry_point("retrieve")
-        graph.add_edge("retrieve", "reason")
-        graph.add_edge("reason", "answer")
-        graph.add_edge("answer", END)
-        return graph.compile()
-
-    For now, return a plain-Python callable chain so the skeleton is
-    runnable/testable without the langgraph dependency installed yet.
-    """
-
-    def run(state: AgentState) -> AgentState:
-        state = retrieve_node(state)
-        state = reason_node(state)
-        state = answer_node(state)
-        return state
-
-    return run
+    """Build and compile the LangGraph state graph for the RAG tool chain."""
+    graph = StateGraph(AgentState)
+    graph.add_node("retrieve", retrieve_node)
+    graph.add_node("reason", reason_node)
+    graph.add_node("answer", answer_node)
+    graph.set_entry_point("retrieve")
+    graph.add_edge("retrieve", "reason")
+    graph.add_edge("reason", "answer")
+    graph.add_edge("answer", END)
+    return graph.compile()
 
 
 if __name__ == "__main__":
     app = build_graph()
-    result = app({"question": "What is this skeleton for?"})
+    result = app.invoke({"question": "What is this skeleton for?"})
     print(result["final_answer"])
