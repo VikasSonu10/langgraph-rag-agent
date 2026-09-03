@@ -111,3 +111,8 @@ approval gates, and cluster autoscaling exercises.
 - Wire up `graph.py`'s real `StateGraph` (currently a plain-Python stand-in)
 - Implement real retrieval in `retriever_tool.py`
 - `git init`, first commit, push to a remote (Git / Azure DevOps)
+
+
+## langgraphragacr.azurecr.io
+## FaQSVs5niW0kxQpBG3ZUzNELGRirmDf0fv9NZhZtEn9KbFZ2UY6wJQQJ99CIACGhslBEqg7NAAACAZCR5a3c
+
